@@ -9,41 +9,35 @@ class CurrencyConverter extends React.Component {
 
   constructor(props){
    super(props);
-  this.createState = this.createState.bind(this);
-  }
-
-  createState(){
-    this.state = {
-      leftTable : {currency:this.currencyList[0]._currency,rate:this.currencyList[0]._rate, value:0},
-      rightTable : {currency:this.currencyList[this.currencyList.length-1]._currency,rate: this.currencyList[this.currencyList.length-1]._rate,value:0},
-      baseCurrency : 'EUR',
-      baseRate: 1,  
-    }
-    const updatedRates = this.updateRates(this.state);
-    console.log("updatedRates", updatedRates)
-     Object.assign(this.state,updatedRates);
-
-  }
-
-  init (){
-    this.currencyList = new BuildCurrencyList();
-    
-  }
-  /*
-  state = {
-    leftTable : {currency:'USD',rate:0, value:0},
-    rightTable : {currency:'EUR',rate:0,value:0},
+   this.init = false;
+   this.createState = this.createState.bind(this);
+   this.state = {
+    leftTable : {currency:'EUR',rate:1, value:0},
+    rightTable : {currency:'EUR',rate:1, value:0},
     baseCurrency : 'EUR',
-    baseRate: 1
-  }  
-  */
+    baseRate: 1,  
+    }
+  this.currencyList = new BuildCurrencyList().load(this.createState);
+  }
+
+  createState(currencyList){
+    
+    const stateObj = {
+      leftTable : {currency: currencyList[0]._currency,rate: currencyList[0]._rate, value:0},
+      rightTable : {currency: currencyList[currencyList.length-1]._currency,rate: currencyList[currencyList.length-1]._rate,value:0}
+    }
+    const updatedRates = this.updateRates(stateObj);
+    console.log("updatedRates", updatedRates)
+    this.currencyList = currencyList
+    this.init = true;
+    this.setState(updatedRates);    
+  }
 
 updateState(updated_state){
  
   this.setState(updated_state);
   updated_state = this.updateRates(this.state);
   this.setState(updated_state);
- // CurrencyComparisonText.updateState(state);
 } 
 
 updateRates(updated_state){
@@ -53,24 +47,30 @@ updateRates(updated_state){
   updated_state.reverse = reverseRate(baseRate,updated_state.xchange);
   return updated_state
 }
+
   render(){
    const styles = 'CurrencyConverter_';
+   
+   const content = (
+   
+    <div className = {`${styles}flexContainer`}>
+     <CurrencyTable name = 'leftTable' currencyList = {this.currencyList} updateState = {this.updateState.bind(this)} state = {this.state} />
+       <img alt='' src={convertImage} className = {`${styles}convertImg`}></img>
+       <CurrencyTable  name = 'rightTable' currencyList = {this.currencyList} updateState = {this.updateState.bind(this)} state = {this.state} />
+     </div>
+   )
+   let show = this.init ? content : null;
+  
     return (
       <div className = {`${styles}root`}>
         <div className = {`${styles}heading`}>
           Currency Converter
         </div>
-        
-        <div className = {`${styles}flexContainer`}>
-         
-          <CurrencyTable name = 'leftTable' currencyList = {this.currencyList} updateState = {this.updateState.bind(this)} state = {this.state} />
-          <img alt='' src={convertImage} className = {`${styles}convertImg`}></img>
-          <CurrencyTable  name = 'rightTable' currencyList = {this.currencyList} updateState = {this.updateState.bind(this)} state = {this.state} />
-    
-        </div>
+            {show};  
+       
       </div>
       )
   }
-};
+}
 
 export default CurrencyConverter;
