@@ -2,26 +2,54 @@
   text-align: center;
 }
 
-.CurrencyConverter_frame{
-  background-color: blue;
-  width: 100vw;
-  height: 100vh;
-  padding: 15px;
-}
-
 .CurrencyConverter_heading{
   color: white;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  margin:20px;
 }
 
 .CurrencyConverter_compare{
   color: white;
-  font-size: 10px;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
 }
 
+.CurrencyConverter_select{
+  background-color: rgb(177, 177, 177);
+  color: rgb(39, 38, 39);
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  width:100%;
+  height:40px;
+  border:0;
+  font-weight: bold
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.CurrencyConverter_input{
+ 
+  background: transparent;
+  color:white;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  width:100%;
+  border:none;
+  font-weight: bold;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-align: center;
+  
+}
 
 .CurrencyConverter_table_wrapper{
 }
@@ -37,7 +65,7 @@
  position: absolute;
  left: 10vw;
  top: 30px;
- background-color: blue;
+ background-color: rgb(21, 21, 88);
  width: 80vw;
  height: 80vh;
  min-height: 500px;
@@ -65,7 +93,4 @@
   
 }
 
-.CurrencyConverter_input{
- 
-  
-}
+

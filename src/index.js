@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import CurrencyConverter from './CurrencyConverter';
+import CurrencyConverter from './components/CurrencyConvertercyConverter';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<CurrencyConverter />, document.getElementById('root'));

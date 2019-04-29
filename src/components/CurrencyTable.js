@@ -8,12 +8,12 @@ import CurrencyInput from './CurrencyInput'
 class CurrencyTable extends React.Component {
     
 
-    componentDidMount() {
+   /* componentDidMount() {
         this.props.updateState({
           rate : this.props.currencyList[0]._rate
         })
       }
-    
+    */
 
   render(){
    const styles = 'CurrencyConverter_';
