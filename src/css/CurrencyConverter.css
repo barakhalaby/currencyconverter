@@ -1,0 +1,71 @@
+.CurrencyConverter {
+  text-align: center;
+}
+
+.CurrencyConverter_frame{
+  background-color: blue;
+  width: 100vw;
+  height: 100vh;
+  padding: 15px;
+}
+
+.CurrencyConverter_heading{
+  color: white;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.CurrencyConverter_compare{
+  color: white;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+}
+
+
+.CurrencyConverter_table_wrapper{
+}
+
+.CurrencyConverter_table{
+  background-color: rgb(30, 30, 78);
+  height: 60vh;
+  min-width: 300px ;
+  
+}
+
+.CurrencyConverter_root{
+ position: absolute;
+ left: 10vw;
+ top: 30px;
+ background-color: blue;
+ width: 80vw;
+ height: 80vh;
+ min-height: 500px;
+ min-width: 800px;
+}
+
+.CurrencyConverter_flexContainer{
+ 
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-content: space-around;
+ align-items: center;
+}
+
+.CurrencyConverter_flexItem{
+  
+ flex-grow: 1;
+ margin: 30px
+}
+
+.CurrencyConverter_convertImg{
+  width: 70px;
+  height:70px;
+  
+}
+
+.CurrencyConverter_input{
+ 
+  
+}
